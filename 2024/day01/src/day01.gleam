@@ -82,7 +82,7 @@ fn is_not_empty(x) {
   !string.is_empty(x)
 }
 
-/// Calculates the difference between the values of each column
+/// Calculates the difference between the values of each column.
 fn difference(pairs: List(Pair)) {
   let #(a, b) =
     split(pairs)
