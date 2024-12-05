@@ -1,6 +1,0 @@
-[packages]
-simplifile = "2.2.0"
-filepath = "1.1.0"
-gleam_stdlib = "0.45.0"
-argv = "1.0.2"
-gleeunit = "1.2.0"
