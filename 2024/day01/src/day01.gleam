@@ -4,6 +4,7 @@ import gleam/io
 import gleam/list
 import gleam/result
 import gleam/string
+import part02
 import simplifile
 
 pub type Pair =
@@ -14,15 +15,20 @@ pub fn main() {
     process_args()
     |> result.try(read_file)
     |> result.try(parse)
-    |> result.map(difference)
 
-  case result {
-    Ok(diff) -> io.println("Total difference: " <> int.to_string(diff))
-    Error(err) -> {
-      io.debug(err)
-      Nil
-    }
-  }
+  result
+  |> result.map(part01)
+  |> result.map(part02.similarity)
+  |> result.map_error(fn(err) { io.println(err) })
+}
+
+fn part01(pairs: List(Pair)) {
+  let diff =
+    pairs
+    |> difference
+
+  io.println("Difference: " <> int.to_string(diff))
+  pairs
 }
 
 fn process_args() {
